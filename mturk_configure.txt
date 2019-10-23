@@ -1,0 +1,15 @@
+SANDBOX="--endpoint-url https://mturk-requester-sandbox.us-east-1.amazonaws.com"
+
+mturk create-hit 
+  --max-assignments 9 \
+  --auto-approval-delay-in-seconds 86400 \
+  --lifetime-in-seconds 7200 \
+  --assignment-duration-in-seconds 3600 \
+  --reward 1.00 \
+  --title "GMU Demo zgao" \
+  --description "Demo Experiment ZGao." \
+  --question '<ExternalQuestion xmlns="http://mechanicalturk.amazonaws.com/AWSMechanicalTurkDataSchemas/2006-07-14/ExternalQuestion.xsd"><ExternalURL>https://s3.amazonaws.com/fap2018/demo/mturk.html?condition=${condition}&amp;list=${list}</ExternalURL><FrameHeight>600</FrameHeight></ExternalQuestion>'\
+  --qualification-requirements "QualificationTypeId=00000000000000000071,Comparator=NotEqualTo,LocaleValues=[{Country=US,Subdivision=VA}]"\
+  --qualification-requirements "QualificationTypeId=2F1QJWKUDD8XADTFD2Q0G6UTO95ALH,Comparator=Exists"
+
+  mturk get-hit --hit-id '3VF0G6A7K0BL3SX1WR68DBRI40WYE8'
